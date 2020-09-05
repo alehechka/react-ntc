@@ -1,6 +1,6 @@
 {
 	"name": "react-ntc",
-	"version": "1.0.2",
+	"version": "1.0.3",
 	"description": "React Hooks for 'Name That Color' project.",
 	"keywords": [
 		"react",
@@ -16,14 +16,14 @@
 	],
 	"license": "MIT",
 	"author": "Adam Lehechka (https://github.com/alehechka)",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/alehechka/react-ntc"
-	},
+	"repository": "git://github.com/alehechka/react-ntc.git",
 	"bugs": {
 		"url": "https://github.com/alehechka/react-ntc/issues"
 	},
 	"homepage": "https://github.com/alehechka/react-ntc#readme",
+	"publishConfig": {
+		"registry": "https://npm.pkg.github.com"
+	},
 	"scripts": {
 		"build": "webpack"
 	},
