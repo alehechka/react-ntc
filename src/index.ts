@@ -19,7 +19,7 @@ export const formatHex = (hex: string) => hex.replace('#', '').toUpperCase();
 /**
  * Formats an array of hex values into a usable format with the colors map.
  */
-export const formatHexValues = (hexValues: string[]) => hexValues.map((hex) => formatHex(hex));
+export const formatHexValues = (hexValues: string[] = []) => hexValues.map((hex) => formatHex(hex));
 
 /**
  * Returns all colors in a map of colors.
@@ -63,7 +63,7 @@ export const useLookupColors = (hexValues: string[] = []) => {
 /**
  * Returns the color objects of only the hex values provided.
  */
-export const useLookupColorObjects = (hexValues: string[]) => {
+export const useLookupColorObjects = (hexValues: string[] = []) => {
 	const colorObjects = useColorObjects();
 	const formattedHexValues = formatHexValues(hexValues);
 	return colorObjects.filter((color) => formattedHexValues.includes(color.hex));
@@ -72,7 +72,7 @@ export const useLookupColorObjects = (hexValues: string[]) => {
 /**
  * Returns the color tuples of only the hex values provided.
  */
-export const useLookupColorTuples = (hexValues: string[]) => {
+export const useLookupColorTuples = (hexValues: string[] = []) => {
 	const colorTuples = useColorTuples();
 	const formattedHexValues = formatHexValues(hexValues);
 	return colorTuples.filter((color) => formattedHexValues.includes(color[0]));

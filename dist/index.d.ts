@@ -13,7 +13,7 @@ export declare const formatHex: (hex: string) => string;
 /**
  * Formats an array of hex values into a usable format with the colors map.
  */
-export declare const formatHexValues: (hexValues: string[]) => string[];
+export declare const formatHexValues: (hexValues?: string[]) => string[];
 /**
  * Returns all colors in a map of colors.
  */
@@ -33,8 +33,8 @@ export declare const useLookupColors: (hexValues?: string[]) => ColorMap;
 /**
  * Returns the color objects of only the hex values provided.
  */
-export declare const useLookupColorObjects: (hexValues: string[]) => ColorObject[];
+export declare const useLookupColorObjects: (hexValues?: string[]) => ColorObject[];
 /**
  * Returns the color tuples of only the hex values provided.
  */
-export declare const useLookupColorTuples: (hexValues: string[]) => ColorTuple[];
+export declare const useLookupColorTuples: (hexValues?: string[]) => ColorTuple[];
