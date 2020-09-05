@@ -1,3 +1,56 @@
 # react-ntc
 
-React Hooks module for Name That Color project.
+React Hooks module for the [Name That Color](chir.ag/projects/ntc/) project.
+
+## Installation
+
+To install react-ntc with `npm`:
+
+    npm install react-ntc
+
+To install react-ntc with `yarn`:
+
+    yarn add react-ntc
+
+# Types
+
+```ts
+interface ColorMap {
+	[key: string]: string;
+}
+
+interface ColorObject {
+	name: string;
+	hex: string;
+}
+
+type ColorTuple = [hex: string, name: string];
+```
+
+# Hooks
+
+```ts
+useColors()
+
+useColorObjects()
+
+useColorTuples()
+
+useLookupColors(hexValues: string[])
+
+useLookupColorObjects(hexValues: string[])
+
+useLookupColorTuples(hexValues: string[])
+```
+
+# Functions
+
+```ts
+formatHex(hex: string)
+
+formatHexValues(hexValues: string)
+```
+
+## License
+
+This project is licensed under the terms of the [MIT license](/LICENSE).

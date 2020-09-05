@@ -11,14 +11,26 @@ export interface ColorObject {
 
 export type ColorTuple = [string, string];
 
+/**
+ * Formats a single hex value into a usable format with the colors map.
+ */
 export const formatHex = (hex: string) => hex.replace('#', '').toUpperCase();
 
+/**
+ * Formats an array of hex values into a usable format with the colors map.
+ */
 export const formatHexValues = (hexValues: string[]) => hexValues.map((hex) => formatHex(hex));
 
+/**
+ * Returns all colors in a map of colors.
+ */
 export const useColors = () => {
 	return Colors as ColorMap;
 };
 
+/**
+ * Returns all colors in an array of color objects.
+ */
 export const useColorObjects = () => {
 	const colors = useColors();
 	return Object.keys(colors).map((hex) => {
@@ -26,6 +38,9 @@ export const useColorObjects = () => {
 	});
 };
 
+/**
+ * Returns all colors in an array of color tuples.
+ */
 export const useColorTuples = () => {
 	const colors = useColors();
 	return Object.keys(colors).map((hex) => {
@@ -33,6 +48,9 @@ export const useColorTuples = () => {
 	});
 };
 
+/**
+ * Returns the color map of only the hex values provided.
+ */
 export const useLookupColors = (hexValues: string[] = []) => {
 	const colors = useColors();
 
@@ -42,13 +60,19 @@ export const useLookupColors = (hexValues: string[] = []) => {
 	}, {} as ColorMap);
 };
 
-export const useLookupColorObjects = (hexValues: ColorObject['hex'][]) => {
+/**
+ * Returns the color objects of only the hex values provided.
+ */
+export const useLookupColorObjects = (hexValues: string[]) => {
 	const colorObjects = useColorObjects();
 	const formattedHexValues = formatHexValues(hexValues);
 	return colorObjects.filter((color) => formattedHexValues.includes(color.hex));
 };
 
-export const useLookupColorTuples = (hexValues: ColorTuple[0][]) => {
+/**
+ * Returns the color tuples of only the hex values provided.
+ */
+export const useLookupColorTuples = (hexValues: string[]) => {
 	const colorTuples = useColorTuples();
 	const formattedHexValues = formatHexValues(hexValues);
 	return colorTuples.filter((color) => formattedHexValues.includes(color[0]));
