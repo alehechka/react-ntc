@@ -51,6 +51,10 @@ formatHex(hex: string)
 formatHexValues(hexValues: string)
 ```
 
+# Demo
+
+View demo here: [https://alehechka.github.io/react-ntc/](https://alehechka.github.io/react-ntc/)
+
 ## License
 
 This project is licensed under the terms of the [MIT license](/LICENSE).
