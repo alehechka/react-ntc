@@ -41,6 +41,8 @@ useLookupColors(hexValues: string[])
 useLookupColorObjects(hexValues: string[])
 
 useLookupColorTuples(hexValues: string[])
+
+useNameThatColor()
 ```
 
 # Functions

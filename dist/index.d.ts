@@ -38,3 +38,7 @@ export declare const useLookupColorObjects: (hexValues?: string[]) => ColorObjec
  * Returns the color tuples of only the hex values provided.
  */
 export declare const useLookupColorTuples: (hexValues?: string[]) => ColorTuple[];
+/**
+ * Returns a function that can be used to return the name of a color based on the hex value provided to it.
+ */
+export declare const useNameThatColor: () => (hexValue: string) => string;
