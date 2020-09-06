@@ -1,6 +1,6 @@
 {
 	"name": "react-ntc",
-	"version": "1.0.5",
+	"version": "1.0.6",
 	"description": "React Hooks for 'Name That Color' project.",
 	"keywords": [
 		"react",
@@ -25,14 +25,20 @@
 	},
 	"homepage": "https://github.com/alehechka/react-ntc#readme",
 	"scripts": {
-		"build": "yarn && webpack"
+		"lint": "eslint . --ext .ts",
+		"build": "yarn && yarn lint && webpack"
 	},
 	"devDependencies": {
+		"@typescript-eslint/eslint-plugin": "^4.0.1",
+		"@typescript-eslint/parser": "^4.0.1",
 		"babel-core": "^6.21.0",
 		"babel-loader": "^7.1.4",
 		"babel-preset-env": "^1.6.1",
 		"babel-preset-react": "^6.16.0",
 		"babel-preset-stage-0": "^6.24.1",
+		"eslint": "^7.8.1",
+		"eslint-plugin-react": "^7.20.6",
+		"eslint-plugin-react-hooks": "^4.1.0",
 		"path": "^0.12.7",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",

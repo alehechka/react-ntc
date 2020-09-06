@@ -3,3 +3,6 @@ src
 webpack.config.js
 .vscode
 tsconfig.json
+.eslintrc.json
+.eslintignore
+.gitignore
