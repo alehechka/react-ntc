@@ -1,21 +1,23 @@
 {
-	"compilerOptions": {
-		"declaration": true,
-		"declarationDir": "./dist",
-		"outDir": "dist",
-		"target": "ES2020",
-		"allowSyntheticDefaultImports": true,
-		"esModuleInterop": true,
-		"moduleResolution": "node",
-		"module": "ES2020",
-		"baseUrl": ".",
-		"resolveJsonModule": true,
-		"jsx": "react",
-		"lib": ["es2020", "dom"]
-	},
-	"paths": {
-		"*": ["node_modules/*"]
-	},
-	"include": ["src/**/*"],
-	"exclude": ["node_modules"]
+  "include": ["src", "types"],
+  "compilerOptions": {
+    "module": "esnext",
+    "lib": ["dom", "esnext"],
+    "importHelpers": true,
+    "declaration": true,
+    "sourceMap": true,
+    "rootDir": "./src",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "moduleResolution": "node",
+    "jsx": "react",
+    "esModuleInterop": true
+  },
+  "paths": {
+    "*": ["node_modules/*"]
+  },
+  "exclude": ["node_modules"]
 }

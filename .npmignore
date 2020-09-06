@@ -1,8 +1,8 @@
 src
-.babelrc
-webpack.config.js
+.github
 .vscode
+example
+test
 tsconfig.json
-.eslintrc.json
-.eslintignore
 .gitignore
+yarn-error.log

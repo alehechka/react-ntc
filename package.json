@@ -1,55 +1,68 @@
 {
-	"name": "react-ntc",
-	"version": "1.0.7",
-	"description": "React Hooks for 'Name That Color' project.",
-	"keywords": [
-		"react",
-		"reactjs",
-		"hooks",
-		"color",
-		"name that color",
-		"ntc"
-	],
-	"main": "./dist/index.js",
-	"files": [
-		"dist"
-	],
-	"license": "MIT",
-	"author": "Adam Lehechka (https://github.com/alehechka)",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/alehechka/react-ntc"
-	},
-	"bugs": {
-		"url": "https://github.com/alehechka/react-ntc/issues"
-	},
-	"homepage": "https://github.com/alehechka/react-ntc#readme",
-	"scripts": {
-		"lint": "eslint . --ext .ts",
-		"build": "yarn && yarn lint && webpack"
-	},
-	"peerDependencies": {
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"typescript": "^4.0.2"
-	},
-	"devDependencies": {
-		"@typescript-eslint/eslint-plugin": "^4.0.1",
-		"@typescript-eslint/parser": "^4.0.1",
-		"babel-core": "^6.21.0",
-		"babel-loader": "^7.1.4",
-		"babel-preset-env": "^1.6.1",
-		"babel-preset-react": "^6.16.0",
-		"babel-preset-stage-0": "^6.24.1",
-		"eslint": "^7.8.1",
-		"eslint-plugin-react": "^7.20.6",
-		"eslint-plugin-react-hooks": "^4.1.0",
-		"path": "^0.12.7",
-		"react": "^16.13.1",
-		"react-dom": "^16.13.1",
-		"ts-loader": "^8.0.3",
-		"typescript": "^4.0.2",
-		"webpack": "^4.5.0",
-		"webpack-cli": "^3.2.1"
-	}
+  "name": "react-ntc",
+  "version": "1.0.8",
+  "description": "React Hooks for 'Name That Color' project.",
+  "keywords": [
+    "react",
+    "reactjs",
+    "hooks",
+    "color",
+    "name that color",
+    "ntc"
+  ],
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "tsdx test --passWithNoTests",
+    "lint": "tsdx lint src test",
+    "prepare": "tsdx build"
+  },
+  "peerDependencies": {
+    "react": ">=16.8"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
+    }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "author": "Adam Lehechka (https://github.com/alehechka)",
+  "module": "dist/react-name-that-color.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alehechka/react-ntc"
+  },
+  "bugs": {
+    "url": "https://github.com/alehechka/react-ntc/issues"
+  },
+  "homepage": "https://github.com/alehechka/react-ntc#readme",
+  "devDependencies": {
+    "@types/react": "^16.9.49",
+    "@types/react-dom": "^16.9.8",
+    "husky": "^4.2.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "tsdx": "^0.13.3",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.2"
+  },
+  "resolutions": {
+    "**/@typescript-eslint/parser": "4.0.1",
+    "**/@typescript-eslint/eslint-plugin": "4.0.1"
+  }
 }
