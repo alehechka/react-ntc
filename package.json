@@ -1,6 +1,6 @@
 {
   "name": "react-ntc",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "React Hooks for 'Name That Color' project.",
   "keywords": [
     "react",
@@ -14,8 +14,7 @@
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "engines": {
     "node": ">=10"
