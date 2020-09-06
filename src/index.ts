@@ -25,7 +25,7 @@ export const formatHexValues = (hexValues: string[] = []) => hexValues.map((hex)
  * Returns all colors in a map of colors.
  */
 export const useColors = () => {
-	return Colors as ColorMap;
+	return Colors;
 };
 
 /**
