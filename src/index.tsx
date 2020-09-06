@@ -14,7 +14,7 @@ export type ColorTuple = [string, string];
 /**
  * Formats a single hex value into a usable format with the colors map.
  */
-export const formatHex = (hex: string) => hex?.replace('#', '').toUpperCase();
+export const formatHex = (hex: string) => hex.replace('#', '').toUpperCase();
 
 /**
  * Formats an array of hex values into a usable format with the colors map.

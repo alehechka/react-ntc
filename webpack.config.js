@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
 	mode: 'production',
-	entry: './src/index.ts',
+	entry: './src/index.tsx',
 	module: {
 		rules: [
 			{
@@ -13,7 +13,7 @@ module.exports = {
 		],
 	},
 	resolve: {
-		extensions: ['.tsx', '.ts', '.js'],
+		extensions: ['.tsx', '.ts', '.js', '.json'],
 	},
 	output: {
 		filename: 'index.js',
