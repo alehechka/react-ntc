@@ -12,6 +12,14 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
 
+      # Update package version and set up git
+      - uses: actions/setup-node@master
+      - name: Update package version and setup git
+        run: |
+          git config user.name "Adam Lehechka"
+          git config user.email ajlehechka@gmail.com
+          npm version 1.0.$(date +%s)
+
       - name: Set up Node.js (NPM)
         uses: actions/setup-node@master
         with:
@@ -22,17 +30,23 @@ jobs:
         uses: bahmutov/npm-install@HEAD
 
       - name: Publish to NPM
-        run: npm publish --verbose
+        run: |
+          npm config set //registry.npmjs.org/:_authToken $NPM_AUTH_TOKEN
+          npm config set scope "alehechka"
+          npm config list
+          npm publish --access public
         env:
+          CI: true
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
+      # Publish to GitHub Package Registry
       - name: Set up Node.js (GPR)
         uses: actions/setup-node@master
         with:
-          node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
-
-      - name: Publish to GPR
-        run: npm publish --verbose
+          node-version: 12
+          registry-url: https://npm.pkg.github.com/
+          scope: 'alehechka'
+      - name: Publish to GitHub Package Registry
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
