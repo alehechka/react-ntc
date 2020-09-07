@@ -5,18 +5,20 @@ on:
       - master # Change this to your default branch
       - bugfix
 jobs:
-  install:
-    name: install
+  npm-publish:
+    name: npm-publish
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@master
+      # Publish to Node Package Manager
+      - name: Checkout Repo
+        uses: actions/checkout@main
 
-      - name: Set up Node.js
+      - name: Setup Node.js (NPM)
         uses: actions/setup-node@master
         with:
           node-version: '12.x'
+          registry-url: 'https://registry.npmjs.org'
 
       - name: Use cached node_modules
         uses: actions/cache@master
@@ -31,33 +33,6 @@ jobs:
         env:
           CI: true
 
-      - name: Archive Node Modules Artifact
-        uses: actions/upload-artifact@main
-        with:
-          name: node_modules
-          path: node_modules
-
-  npm-publish:
-    name: npm-publish
-    needs: install
-    runs-on: ubuntu-latest
-
-    steps:
-      # Publish to Node Package Manager
-      - name: Checkout Repo
-        uses: actions/checkout@main
-
-      - name: Download Artifact
-        uses: actions/download-artifact@main
-        with:
-          name: node_modules
-          path: node_modules
-
-      - name: Set registry to NPM
-        uses: actions/setup-node@master
-        with:
-          registry-url: 'https://registry.npmjs.org'
-
       - name: Update Publish Config
         run: sed -i 's^registry-url^registry.npmjs.org^' package.json
 
@@ -69,7 +44,6 @@ jobs:
 
   gpr-publish:
     name: gpr-publish
-    needs: install
     runs-on: ubuntu-latest
 
     steps:
@@ -77,17 +51,25 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@main
 
-      - name: Download Artifact
-        uses: actions/download-artifact@main
-        with:
-          name: node_modules
-          path: node_modules
-
-      - name: Set registry to GPR
+      - name: Setup Node.js (GPR)
         uses: actions/setup-node@master
         with:
+          node-version: '12.x'
           registry-url: https://npm.pkg.github.com/
           scope: '${{ github.actor }}'
+
+      - name: Use cached node_modules
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            nodeModules-
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
 
       - name: Update Publish Config
         run: |
