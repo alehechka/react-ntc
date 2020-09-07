@@ -5,7 +5,7 @@ on:
       - master # Change this to your default branch
 jobs:
   github-publish:
-    name: npm-publish
+    name: github-publish
     runs-on: ubuntu-latest
 
     steps:
@@ -42,7 +42,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@master
         with:
-          node-version: 10.0.0
+          node-version: 12.0.0
           registry-url: 'https://registry.npmjs.org/'
       - name: Install Dependencies
         uses: bahmutov/npm-install@HEAD
