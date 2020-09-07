@@ -12,14 +12,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
 
-      # Update package version and set up git
-      - uses: actions/setup-node@master
-      - name: Update package version and setup git
-        run: |
-          git config user.name "Adam Lehechka"
-          git config user.email ajlehechka@gmail.com
-          npm version 1.0.$(date +%s)
-
       - name: Set up Node.js (NPM)
         uses: actions/setup-node@master
         with:
