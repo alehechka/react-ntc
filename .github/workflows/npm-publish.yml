@@ -32,7 +32,7 @@ jobs:
 
       # Publish to Node Package Manager
       - name: Set registry to NPM
-        uses: actions/checkout@master
+        uses: actions/setup-node@master
         with:
           registry-url: 'https://registry.npmjs.org'
 
