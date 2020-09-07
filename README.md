@@ -1,6 +1,6 @@
 # react-ntc
 
-React Hooks module for the [Name That Color](chir.ag/projects/ntc/) project.
+React Hooks module for the [Name That Color](http://chir.ag/projects/ntc/) project.
 
 ## Installation
 
