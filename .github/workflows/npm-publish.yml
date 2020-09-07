@@ -12,33 +12,44 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@master
 
-      - name: Set up Node.js (NPM)
+      - name: Set up Node.js
         uses: actions/setup-node@master
         with:
           node-version: '12.x'
+
+      - name: Use cached node_modules
+        uses: actions/cache@master
+        with:
+          path: node_modules
+          key: nodeModules-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            nodeModules-
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+        env:
+          CI: true
+
+      # Publish to Node Package Manager
+      - name: Set registry to NPM
+        uses: actions/checkout@master
+        with:
           registry-url: 'https://registry.npmjs.org'
 
-      - name: Install Dependencies
-        uses: bahmutov/npm-install@HEAD
-
       - name: Publish to NPM
-        run: |
-          npm config set //registry.npmjs.org/:_authToken $NPM_AUTH_TOKEN
-          npm config set scope "alehechka"
-          npm config list
-          npm publish --access public
+        run: npm publish --access public
         env:
           CI: true
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
 
       # Publish to GitHub Package Registry
-      - name: Set up Node.js (GPR)
+      - name: Set registry to GPR
         uses: actions/setup-node@master
         with:
-          node-version: 12
           registry-url: https://npm.pkg.github.com/
           scope: 'alehechka'
       - name: Publish to GitHub Package Registry
-        run: npm publish
+        run: npm publish --access public
         env:
+          CI: true
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
