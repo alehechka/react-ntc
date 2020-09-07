@@ -4,7 +4,7 @@ on:
     branches:
       - master # Change this to your default branch
 jobs:
-  npm-publish:
+  github-publish:
     name: npm-publish
     runs-on: ubuntu-latest
 
@@ -16,6 +16,7 @@ jobs:
         uses: actions/setup-node@master
         with:
           node-version: 12.0.0
+          registry-url: 'https://npm.pkg.github.com/@${{ github.actor }}'
 
       - name: Install Dependencies
         uses: bahmutov/npm-install@HEAD
@@ -31,3 +32,21 @@ jobs:
         env: # More info about the environment variables in the README
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # Leave this as is, it's automatically generated
           NPM_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }} # You need to set this in your repo settings
+
+  npm-publish:
+    name: npm-publish
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@master
+      - name: Set up Node.js
+        uses: actions/setup-node@master
+        with:
+          node-version: 10.0.0
+          registry-url: 'https://registry.npmjs.org/'
+      - name: Install Dependencies
+        uses: bahmutov/npm-install@HEAD
+      - run: npm publish --access public
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
