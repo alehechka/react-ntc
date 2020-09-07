@@ -42,7 +42,7 @@ useLookupColorObjects(hexValues: string[])
 
 useLookupColorTuples(hexValues: string[])
 
-useNameThatColor()
+useNameThatColor(hexValue: string)
 ```
 
 # Functions

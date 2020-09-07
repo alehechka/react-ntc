@@ -84,12 +84,10 @@ export const useLookupColorTuples = (
 };
 
 /**
- * Returns a function that can be used to return the name of a color based on the hex value provided to it.
+ * Returns a the name of a color from the hex value provided.
  */
-export const useNameThatColor = (): ((hexValue: string) => string) => {
+export const useNameThatColor = (hexValue: string): string => {
   const colors = useColors();
-  return (hexValue: string): string => {
-    const formattedHexValue = formatHex(hexValue);
-    return colors[formattedHexValue];
-  };
+  const formattedHexValue = formatHex(hexValue);
+  return colors[formattedHexValue];
 };
