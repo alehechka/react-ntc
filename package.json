@@ -1,6 +1,6 @@
 {
   "name": "react-ntc",
-  "version": "1.1.5",
+  "version": "1.1.6",
   "description": "React Hooks for 'Name That Color' project.",
   "keywords": [
     "react",
@@ -60,8 +60,5 @@
   "resolutions": {
     "**/@typescript-eslint/parser": "4.0.1",
     "**/@typescript-eslint/eslint-plugin": "4.0.1"
-  },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/@alehechka"
   }
 }
