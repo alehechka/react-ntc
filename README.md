@@ -2,6 +2,11 @@
 
 React Hooks module for the [Name That Color](http://chir.ag/projects/ntc/) project.
 
+[![npm version](https://img.shields.io/npm/v/react-ntc.svg?style=flat-square)](https://www.npmjs.com/package/react-ntc)
+[![npm-publish](https://github.com/alehechka/react-ntc/workflows/npm-publish/badge.svg)](https://github.com/alehechka/react-ntc/actions)
+[![npm downloads](https://img.shields.io/npm/dm/react-ntc.svg?style=flat-square)](https://www.npmjs.com/package/react-ntc)
+
+
 ## Installation
 
 To install react-ntc with `npm`:
