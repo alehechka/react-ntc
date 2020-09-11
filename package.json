@@ -24,7 +24,10 @@
     "build": "tsdx build",
     "test": "tsdx test --passWithNoTests",
     "lint": "tsdx lint src test",
-    "prepare": "tsdx build"
+    "prepare": "tsdx build",
+    "pregit": "git add *",
+    "git": "git commit",
+    "post git": "git push"
   },
   "peerDependencies": {
     "react": ">=16.8"
