@@ -9,7 +9,7 @@ export interface ColorObject {
   hex: string;
 }
 
-export type ColorTuple = [string, string];
+export type ColorTuple = [hex: string, name: string];
 
 /**
  * Formats a single hex value into a usable format with the colors map.
