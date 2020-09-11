@@ -1,6 +1,6 @@
 {
   "name": "react-ntc",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "description": "React Hooks for 'Name That Color' project.",
   "keywords": [
     "react",
@@ -27,7 +27,7 @@
     "prepare": "tsdx build",
     "pregit": "git add *",
     "git": "git commit",
-    "post git": "git push"
+    "postgit": "git push"
   },
   "peerDependencies": {
     "react": ">=16.8"
